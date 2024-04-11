@@ -1,0 +1,17 @@
+version: "3"
+services:
+  db:
+    container_name: my-db-postgres
+    image: postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - 5433:5432
+    volumes:
+      - db-store:/var/lib/postgresql/data
+    command: >
+      -c log_statement=all
+
+volumes:
+  db-store:
